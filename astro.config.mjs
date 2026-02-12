@@ -6,5 +6,5 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [lottie(), preact()],
+  integrations: [lottie(), preact({ compat: true })],
 });

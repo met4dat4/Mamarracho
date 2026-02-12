@@ -1,5 +1,4 @@
 .overlay {
-    background-color: rgba(0, 0, 0, 0.7);
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -10,4 +9,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+#contenido {
+    height: 70vh;
+    width: 50vw;
+    background-color: #3f133a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+h3 {
+    color: white;
 }

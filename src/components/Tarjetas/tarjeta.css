@@ -1,0 +1,6 @@
+.tarjeta img {
+    height: 20vh;
+    width: auto;
+    --escala: 1;
+    transform: scale(var(--escala));
+}
