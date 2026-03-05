@@ -3,21 +3,18 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 import background from "../assets/Main/fondo-mantel.png";
 import tablero from "../assets/Main/tablero.png";
 import tarjeta from "../assets/Main/tarjeta.svg";
+import bolaBottom from "../assets/Casilleros/bola-bottom.png";
 import { fade } from "astro:transitions";
 import Seccion from "../components/Secciones/seccion.jsx";
 import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
+import Tablero from "../components/Tablero.astro";
 ---
 
 <div class="container" transition:animate={fade({ duration: "1s" })}>
     <img id="background" src={background.src} alt="" fetchpriority="high" />
     <main>
         <div id="mesa">
-            <img
-                class="tablero"
-                src={tablero.src}
-                alt=""
-                fetchpriority="high"
-            />
+            <Tablero />
             <Tarjeta
                 idSeccion="info"
                 client:load
@@ -30,12 +27,8 @@ import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
                 id="tarjeta-der"
                 rotacion="-90deg"
             />
-            <!-- <div style="width: 200px; height: 150px;">
-        <LottieAnimation src="/lottie-lego.json" autoplay="visible" />
-    </div> -->
         </div>
     </main>
-    <!-- <Seccion /> -->
 </div>
 
 <style>
@@ -63,27 +56,6 @@ import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
         display: grid;
         grid-template-areas: "izq tablero der";
         align-items: center;
-    }
-    .tablero {
-        height: 90vh;
-        /*filter: blur(0px);*/
-    }
-
-    /*.tarjeta img {
-        height: 20vh;
-        width: auto;
-        --escala: 1;
-        transform: var(--rotacion, rotate(0deg)) scale(var(--escala));
-        transition-duration: 0.3s;
-    }
-
-    .tarjeta img:hover {
-        --escala: 1.05;
-        filter: drop-shadow(0 0 5px rgba(232, 217, 102, 1));
-    }*/
-
-    .tablero {
-        grid-area: tablero;
     }
 
     #tarjeta-izq {
