@@ -14,14 +14,14 @@
 
 #contenido {
     height: 70vh;
-    width: 50vw;
-    background-color: #3f133a;
+    width: 60vw;
     display: flex;
     justify-content: center;
     align-items: center;
     backface-visibility: hidden;
     transform: translateZ(0);
-    z-index: 200;
+    background-size: 100% 100%;
+    background-image: url("../src/assets/dorso-tarjeta.svg");
 }
 
 h3 {
