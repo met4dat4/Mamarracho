@@ -14,13 +14,18 @@ import Tablero from "../components/Tablero.astro";
     <img id="background" src={background.src} alt="" fetchpriority="high" />
     <main>
         <div id="mesa">
-            <Tablero />
             <Tarjeta
                 idSeccion="info"
                 client:load
                 id="tarjeta-izq"
                 rotacion="90deg"
             />
+            <div id="tablero-wrapper">
+                <Tablero />
+                <div id="tarjeta-centro">
+                    <Tarjeta idSeccion="MV" client:load rotacion="0deg" />
+                </div>
+            </div>
             <Tarjeta
                 idSeccion="video"
                 client:load
@@ -69,6 +74,18 @@ import Tablero from "../components/Tablero.astro";
         --rotacion: rotate(-90deg);
     }
 
+    #tablero-wrapper {
+        grid-area: tablero;
+    }
+
+    #tarjeta-centro {
+        z-index: 10;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     .candle-overlay {
         position: fixed;
         /* Mantenemos el margen de seguridad para evitar bordes blancos */
@@ -83,9 +100,9 @@ import Tablero from "../components/Tablero.astro";
         background: radial-gradient(
             circle at 50% 50%,
             rgba(255, 140, 20, 0.23) 0%,
-            /* Centro cálido */ rgba(30, 15, 5, 0.35) 45%,
+            /* Centro cálido */ rgba(30, 15, 5, 0.35) 50%,
             /* La luz se mantiene clara por más espacio */ rgba(10, 5, 0, 0.75)
-                55%,
+                65%,
             /* Oscuridad sutil cerca del borde */ rgba(0, 0, 0, 0.95) 100%
                 /* Negro total solo en el extremo final */
         );
@@ -111,20 +128,40 @@ import Tablero from "../components/Tablero.astro";
             opacity: 0.9;
             transform: scale(1) translate(-1px, 0.5px);
         }
+        25% {
+            opacity: 0.82;
+            transform: scale(1) translate(-1px, 0.5px);
+        }
+        35% {
+            opacity: 0.86;
+            transform: scale(1) translate(-1px, 0.5px);
+        }
         45% {
-            opacity: 0.85;
+            opacity: 0.82;
             transform: scale(1.002) translate(0, 0);
         }
         50% {
-            opacity: 0.82; /* Un pequeño bajón de luz orgánico */
+            opacity: 0.8; /* Un pequeño bajón de luz orgánico */
         }
         53% {
             opacity: 0.88;
             transform: scale(1.008) translate(0.5px, 1px);
         }
+        63% {
+            opacity: 0.83;
+            transform: scale(1.008) translate(0.5px, 1px);
+        }
+        73% {
+            opacity: 0.9;
+            transform: scale(1.008) translate(0.5px, 1px);
+        }
         80% {
             opacity: 0.86;
             transform: scale(1) translate(-0.5px, -0.5px);
+        }
+        92% {
+            opacity: 0.82;
+            transform: scale(1.008) translate(0.5px, 1px);
         }
     }
 </style>

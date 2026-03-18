@@ -3,4 +3,5 @@
     width: auto;
     --escala: 1;
     transform: scale(var(--escala));
+    z-index: -1;
 }
