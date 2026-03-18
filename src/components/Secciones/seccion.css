@@ -1,3 +1,17 @@
+@font-face {
+    font-family: "Papiro";
+    src: url("../../assets/FUENTES/LinLibertine_R_G.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Papiro";
+    src: url("../../assets/FUENTES/LinLibertine_RI_G.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
 .overlay {
     height: 100vh;
     width: 100vw;
@@ -23,6 +37,30 @@
     background-size: 100% 100%;
     background-image: url("../src/assets/dorso-tarjeta.svg");
 }
+
+.info-contenido::-webkit-scrollbar {
+    width: 6px;
+}
+.info-contenido::-webkit-scrollbar-track {
+    background: transparent;
+}
+.info-contenido::-webkit-scrollbar-thumb {
+    background: rgba(255, 195, 77, 1);
+}
+
+.info-contenido {
+    max-height: 45vh;
+    max-width: 45vw;
+    overflow-y: auto;
+    box-sizing: border-box;
+    color: rgba(255, 195, 77, 1);
+    font-family: "Papiro", serif;
+}
+
+/*.spoti-contenido {
+    max-height: 70vh;
+    max-width: 70vw;
+}*/
 
 h3 {
     color: white;
