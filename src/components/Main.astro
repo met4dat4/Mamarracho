@@ -29,6 +29,7 @@ import Tablero from "../components/Tablero.astro";
             />
         </div>
     </main>
+    <div class="candle-overlay" fetchpriority="high"></div>
 </div>
 
 <style>
@@ -66,5 +67,64 @@ import Tablero from "../components/Tablero.astro";
     #tarjeta-der {
         grid-area: der;
         --rotacion: rotate(-90deg);
+    }
+
+    .candle-overlay {
+        position: fixed;
+        /* Mantenemos el margen de seguridad para evitar bordes blancos */
+        top: -2%;
+        left: -2%;
+        width: 104%;
+        height: 104%;
+        pointer-events: none;
+        z-index: 100;
+
+        /* Gradiente más amplio: la luz llega más lejos antes de oscurecerse */
+        background: radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 140, 20, 0.23) 0%,
+            /* Centro cálido */ rgba(30, 15, 5, 0.35) 45%,
+            /* La luz se mantiene clara por más espacio */ rgba(10, 5, 0, 0.75)
+                55%,
+            /* Oscuridad sutil cerca del borde */ rgba(0, 0, 0, 0.95) 100%
+                /* Negro total solo en el extremo final */
+        );
+
+        mix-blend-mode: overlay;
+
+        /* Animación ruidosa pero con movimiento reducido */
+        animation: candle-flicker-subtle 4s infinite;
+    }
+
+    @keyframes candle-flicker-subtle {
+        0%,
+        100% {
+            opacity: 0.88;
+            transform: scale(1) translate(0, 0);
+        }
+        /* Los saltos son de apenas 1 o 2 píxeles para que sea ruido y no desplazamiento */
+        7% {
+            opacity: 0.94;
+            transform: scale(1.005) translate(1px, -1px);
+        }
+        15% {
+            opacity: 0.9;
+            transform: scale(1) translate(-1px, 0.5px);
+        }
+        45% {
+            opacity: 0.85;
+            transform: scale(1.002) translate(0, 0);
+        }
+        50% {
+            opacity: 0.82; /* Un pequeño bajón de luz orgánico */
+        }
+        53% {
+            opacity: 0.88;
+            transform: scale(1.008) translate(0.5px, 1px);
+        }
+        80% {
+            opacity: 0.86;
+            transform: scale(1) translate(-0.5px, -0.5px);
+        }
     }
 </style>
