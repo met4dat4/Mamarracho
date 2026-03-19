@@ -2,7 +2,7 @@ import "./seccion.css";
 import { motion } from "framer-motion";
 import { createPortal } from "preact/compat";
 import Info from "./seccion-info.jsx";
-import MV from "./seccion-mv.jsx";
+import MV from "./seccion-MV.jsx";
 import Spoti from "./seccion-spoti.jsx";
 
 const SECCIONES = {
@@ -15,6 +15,7 @@ export default function Seccion({ close, idSeccion, rotacionInicial }) {
   return createPortal(
     <div class="overlay" onClick={close}>
       <motion.div
+        layoutId={`carta-${idSeccion}`}
         id="contenido"
         onClick={(e) => e.stopPropagation()}
         initial={{ rotate: rotacionInicial }}

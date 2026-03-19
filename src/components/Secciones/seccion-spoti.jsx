@@ -8,7 +8,7 @@ export default function Spoti() {
       data-testid="embed-iframe"
       src="https://open.spotify.com/embed/artist/4aJKBbhKK6pLGC3G20c02C?utm_source=generator&theme=0"
       width="60%"
-      height="152"
+      height="352"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       frameBorder="1"
       referrerpolicy="no-referrer-when-downgrade"

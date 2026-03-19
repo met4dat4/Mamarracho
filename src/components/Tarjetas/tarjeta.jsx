@@ -12,6 +12,7 @@ export default function Tarjeta({ rotacion, idSeccion }) {
   return (
     <>
       <motion.div
+        layoutId={`carta-${idSeccion}`}
         class="tarjeta"
         onClick={() => setOpened(true)}
         initial={{
