@@ -1,12 +1,17 @@
 ---
-import background from "../assets/Main/fondo-mantel.webp";
 import { fade } from "astro:transitions";
 import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
 import Tablero from "../components/Tablero.astro";
 ---
 
 <div class="container" id="app" transition:animate={fade({ duration: "1s" })}>
-    <img id="background" src={background.src} alt="" fetchpriority="high" />
+    <img
+        id="background"
+        src="/fondo-mantel.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+    />
     <main>
         <div id="mesa">
             <Tarjeta

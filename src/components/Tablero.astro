@@ -1,5 +1,5 @@
 ---
-import tablero from "../assets/Main/tablero.webp";
+import { Image } from "astro:assets";
 import bolaBottom from "../assets/Casilleros/bola-bottom.webp";
 import bolaUpper from "../assets/Casilleros/bola-upper.webp";
 import calaveraUpper from "../assets/Casilleros/calavera-upper.webp";
@@ -13,34 +13,50 @@ import libroUpper from "../assets/Casilleros/libro-upper.webp";
 <div class="tablero">
     <img
         class="tablero-background"
-        src={tablero.src}
-        alt=""
+        src="/tablero.webp"
+        alt="Tablero"
+        loading="eager"
         fetchpriority="high"
     />
     <div class="grid-botones">
         <button class="casillero calavera-upper">
-            <img src={calaveraUpper.src} alt="" />
+            <Image src={calaveraUpper} alt="" loading="lazy" decoding="async" />
         </button>
         <button class="casillero calavera-bottom">
-            <img src={calaveraBottom.src} alt="" />
+            <Image
+                src={calaveraBottom}
+                alt=""
+                loading="lazy"
+                decoding="async"
+            />
         </button>
         <button class="casillero bola-upper">
-            <img src={bolaUpper.src} alt="" />
+            <Image src={bolaUpper} alt="" loading="lazy" decoding="async" />
         </button>
         <button class="casillero bola-bottom">
-            <img src={bolaBottom.src} alt="" />
+            <Image src={bolaBottom} alt="" loading="lazy" decoding="async" />
         </button>
         <button class="casillero serpiente-upper">
-            <img src={serpienteUpper.src} alt="" />
+            <Image
+                src={serpienteUpper}
+                alt=""
+                loading="lazy"
+                decoding="async"
+            />
         </button>
         <button class="casillero serpiente-bottom">
-            <img src={serpienteBottom.src} alt="" />
+            <Image
+                src={serpienteBottom}
+                alt=""
+                loading="lazy"
+                decoding="async"
+            />
         </button>
         <button class="casillero libro-bottom">
-            <img src={libroBottom.src} alt="" />
+            <Image src={libroBottom} alt="" loading="lazy" decoding="async" />
         </button>
         <button class="casillero libro-upper">
-            <img src={libroUpper.src} alt="" />
+            <Image src={libroUpper} alt="" loading="lazy" decoding="async" />
         </button>
     </div>
 
