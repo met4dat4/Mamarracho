@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import "./tarjeta.css";
-import tarjeta from "../../assets/Main/tarjeta.svg";
+import tarjeta from "../../assets/Main/tarjeta.webp";
 import Seccion from "../Secciones/seccion.jsx";
 import { motion } from "framer-motion";
 

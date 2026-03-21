@@ -1,16 +1,11 @@
 ---
-import LottieAnimation from "astro-integration-lottie/Lottie.astro";
-import background from "../assets/Main/fondo-mantel.png";
-import tablero from "../assets/Main/tablero.png";
-import tarjeta from "../assets/Main/tarjeta.svg";
-import bolaBottom from "../assets/Casilleros/bola-bottom.png";
+import background from "../assets/Main/fondo-mantel.webp";
 import { fade } from "astro:transitions";
-import Seccion from "../components/Secciones/seccion.jsx";
 import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
 import Tablero from "../components/Tablero.astro";
 ---
 
-<div class="container" transition:animate={fade({ duration: "1s" })}>
+<div class="container" id="app" transition:animate={fade({ duration: "1s" })}>
     <img id="background" src={background.src} alt="" fetchpriority="high" />
     <main>
         <div id="mesa">
@@ -38,6 +33,13 @@ import Tablero from "../components/Tablero.astro";
 </div>
 
 <style>
+    #app {
+        opacity: 0;
+        transition: opacity 1.5s ease;
+    }
+    #app.loaded {
+        opacity: 1;
+    }
     body {
         background-color: black;
     }
@@ -55,7 +57,7 @@ import Tablero from "../components/Tablero.astro";
         left: 0;
         height: 100vh;
         width: 100vw;
-        z-index: -2;
+        z-index: -4;
     }
     #mesa {
         height: auto;
@@ -76,10 +78,11 @@ import Tablero from "../components/Tablero.astro";
 
     #tablero-wrapper {
         grid-area: tablero;
+        position: relative;
     }
 
     #tarjeta-centro {
-        z-index: 10;
+        z-index: 0;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -100,9 +103,9 @@ import Tablero from "../components/Tablero.astro";
         background: radial-gradient(
             circle at 50% 50%,
             rgba(255, 140, 20, 0.23) 0%,
-            /* Centro cálido */ rgba(30, 15, 5, 0.35) 50%,
+            /* Centro cálido */ rgba(30, 15, 5, 0.35) 40%,
             /* La luz se mantiene clara por más espacio */ rgba(10, 5, 0, 0.75)
-                65%,
+                50%,
             /* Oscuridad sutil cerca del borde */ rgba(0, 0, 0, 0.95) 100%
                 /* Negro total solo en el extremo final */
         );
@@ -165,3 +168,19 @@ import Tablero from "../components/Tablero.astro";
         }
     }
 </style>
+
+<script>
+    import { isTransitionBeforePreparationEvent } from "astro:transitions/client";
+
+    function mostrar() {
+        setTimeout(() => {
+            document.getElementById("app")?.classList.add("loaded");
+        }, 300);
+    }
+
+    // Para carga inicial normal
+    window.addEventListener("load", mostrar);
+
+    // Para cuando llegás via View Transition
+    document.addEventListener("astro:page-load", mostrar);
+</script>

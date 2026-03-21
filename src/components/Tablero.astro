@@ -1,15 +1,13 @@
 ---
-import tablero from "../assets/Main/tablero.jpg";
-import bolaBottom from "../assets/Casilleros/bola-bottom.svg";
-import bolaUpper from "../assets/Casilleros/bola-upper.svg";
-import calaveraUpper from "../assets/Casilleros/calavera-upper.svg";
-import calaveraBottom from "../assets/Casilleros/calavera-bottom.svg";
-import serpienteUpper from "../assets/Casilleros/serpiente-upper.svg";
-import serpienteBottom from "../assets/Casilleros/serpiente-bottom.svg";
-import libroBottom from "../assets/Casilleros/libro-bottom.svg";
-import libroUpper from "../assets/Casilleros/libro-upper.svg";
-import tarjeta from "../assets/Main/tarjeta.svg";
-import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
+import tablero from "../assets/Main/tablero.webp";
+import bolaBottom from "../assets/Casilleros/bola-bottom.webp";
+import bolaUpper from "../assets/Casilleros/bola-upper.webp";
+import calaveraUpper from "../assets/Casilleros/calavera-upper.webp";
+import calaveraBottom from "../assets/Casilleros/calavera-bottom.webp";
+import serpienteUpper from "../assets/Casilleros/serpiente-upper.webp";
+import serpienteBottom from "../assets/Casilleros/serpiente-bottom.webp";
+import libroBottom from "../assets/Casilleros/libro-bottom.webp";
+import libroUpper from "../assets/Casilleros/libro-upper.webp";
 ---
 
 <div class="tablero">
@@ -62,6 +60,7 @@ import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
             max-width: 100%;
             object-fit: contain;
             display: block;
+            z-index: -2;
         }
 
         .grid-botones {
@@ -80,7 +79,7 @@ import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
             grid-template-rows: repeat(6, 1fr);
 
             overflow: visible;
-            z-index: 10;
+            z-index: 0;
         }
 
         .casillero {
@@ -92,7 +91,7 @@ import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
             justify-content: center;
             align-items: center;
             overflow: visible;
-            z-index: -1;
+            z-index: 0;
         }
 
         .casillero img {
@@ -104,7 +103,7 @@ import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
                 filter 0.4s ease;
 
             backface-visibility: hidden;
-            z-index: 11;
+            z-index: 0;
 
             image-rendering: crisp-edges;
             image-rendering: pixelated;
@@ -115,7 +114,7 @@ import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
         .casillero:hover img {
             transform: scale(1.02);
             filter: drop-shadow(0 0 5px rgba(255, 195, 77, 1));
-            z-index: 200;
+            z-index: 2;
         }
 
         .tarjeta {
