@@ -1,27 +1,15 @@
 ---
 import { ClientRouter } from "astro:transitions";
 const { title } = Astro.props;
+import Preloads from "./Preloads.astro";
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
-        <link
-            rel="preload"
-            as="image"
-            href="/tablero.webp"
-            fetchpriority="high"
-        />
-        <link
-            rel="preload"
-            as="image"
-            href="/fondo-mantel.webp"
-            fetchpriority="high"
-        />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
+        <Preloads />
         <meta name="generator" content={Astro.generator} />
         <title>Mamarracho</title>
         <ClientRouter />

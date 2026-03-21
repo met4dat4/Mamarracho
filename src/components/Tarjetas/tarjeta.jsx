@@ -36,9 +36,11 @@ export default function Tarjeta({ rotacion, idSeccion }) {
         }}
       >
         <img
-          src={tarjeta.src}
+          src="/tarjeta.webp"
           alt=""
           style={{ "--rotacion": rotacion, pointerEvents: "none" }}
+          loading="eager"
+          fetchpriority="high"
         />
       </motion.div>
       {opened && (
