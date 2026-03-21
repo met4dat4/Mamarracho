@@ -8,11 +8,22 @@ import background from "../assets/frontpage background.webp";
     id="container"
     transition:animate={fade({ duration: "1s", direction: "forward" })}
 >
-    <img id="background" src={background.src} alt="" fetchpriority="high" />
+    <img
+        id="background"
+        src="/frontpage background.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+    />
     <main>
         <section id="Inicio">
             <a id="Manos" href="/main" fetchpriority="high">
-                <img src={manosLogo.src} alt="Mamarracho Homepage" />
+                <img
+                    src="/Manos.webp"
+                    alt="Mamarracho Homepage"
+                    loading="eager"
+                    fetchpriority="high"
+                />
             </a>
         </section>
     </main>

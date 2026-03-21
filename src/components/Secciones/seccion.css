@@ -22,6 +22,7 @@
     transform: translateZ(0);
     background-size: 100% 100%;
     background-image: url("/dorso-tarjeta.webp");
+    transform: translateZ(0);
 }
 
 .info-contenido::-webkit-scrollbar {

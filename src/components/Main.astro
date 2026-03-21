@@ -16,21 +16,21 @@ import Tablero from "../components/Tablero.astro";
         <div id="mesa">
             <Tarjeta
                 idSeccion="info"
-                client:load
                 id="tarjeta-izq"
                 rotacion="90deg"
+                client:visible
             />
             <div id="tablero-wrapper">
                 <Tablero />
                 <div id="tarjeta-centro">
-                    <Tarjeta idSeccion="MV" client:load rotacion="0deg" />
+                    <Tarjeta idSeccion="MV" rotacion="0deg" client:visible />
                 </div>
             </div>
             <Tarjeta
                 idSeccion="spoti"
-                client:load
                 id="tarjeta-der"
                 rotacion="-90deg"
+                client:visible
             />
         </div>
     </main>
@@ -108,9 +108,9 @@ import Tablero from "../components/Tablero.astro";
         background: radial-gradient(
             circle at 50% 50%,
             rgba(255, 140, 20, 0.23) 0%,
-            /* Centro cálido */ rgba(30, 15, 5, 0.35) 40%,
+            /* Centro cálido */ rgba(30, 15, 5, 0.35) 45%,
             /* La luz se mantiene clara por más espacio */ rgba(10, 5, 0, 0.75)
-                50%,
+                55%,
             /* Oscuridad sutil cerca del borde */ rgba(0, 0, 0, 0.95) 100%
                 /* Negro total solo en el extremo final */
         );
