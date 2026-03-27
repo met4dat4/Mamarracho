@@ -1,31 +1,36 @@
 ---
-import LottieAnimation from "astro-integration-lottie/Lottie.astro";
-import background from "../assets/Main/fondo-mantel.png";
-import tablero from "../assets/Main/tablero.png";
-import tarjeta from "../assets/Main/tarjeta.svg";
-import bolaBottom from "../assets/Casilleros/bola-bottom.png";
 import { fade } from "astro:transitions";
-import Seccion from "../components/Secciones/seccion.jsx";
 import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
 import Tablero from "../components/Tablero.astro";
 ---
 
-<div class="container" transition:animate={fade({ duration: "1s" })}>
-    <img id="background" src={background.src} alt="" fetchpriority="high" />
+<div class="container" id="app" transition:animate={fade({ duration: "1s" })}>
+    <img
+        id="background"
+        src="/fondo-mantel.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+    />
     <main>
         <div id="mesa">
-            <Tablero />
             <Tarjeta
                 idSeccion="info"
-                client:load
                 id="tarjeta-izq"
                 rotacion="90deg"
+                client:visible
             />
+            <div id="tablero-wrapper">
+                <Tablero />
+                <div id="tarjeta-centro">
+                    <Tarjeta idSeccion="MV" rotacion="0deg" client:visible />
+                </div>
+            </div>
             <Tarjeta
-                idSeccion="video"
-                client:load
+                idSeccion="spoti"
                 id="tarjeta-der"
                 rotacion="-90deg"
+                client:visible
             />
         </div>
     </main>
@@ -33,6 +38,13 @@ import Tablero from "../components/Tablero.astro";
 </div>
 
 <style>
+    #app {
+        opacity: 0;
+        transition: opacity 1.5s ease;
+    }
+    #app.loaded {
+        opacity: 1;
+    }
     body {
         background-color: black;
     }
@@ -50,7 +62,7 @@ import Tablero from "../components/Tablero.astro";
         left: 0;
         height: 100vh;
         width: 100vw;
-        z-index: -2;
+        z-index: -4;
     }
     #mesa {
         height: auto;
@@ -67,6 +79,19 @@ import Tablero from "../components/Tablero.astro";
     #tarjeta-der {
         grid-area: der;
         --rotacion: rotate(-90deg);
+    }
+
+    #tablero-wrapper {
+        grid-area: tablero;
+        position: relative;
+    }
+
+    #tarjeta-centro {
+        z-index: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .candle-overlay {
@@ -111,20 +136,56 @@ import Tablero from "../components/Tablero.astro";
             opacity: 0.9;
             transform: scale(1) translate(-1px, 0.5px);
         }
+        25% {
+            opacity: 0.82;
+            transform: scale(1) translate(-1px, 0.5px);
+        }
+        35% {
+            opacity: 0.86;
+            transform: scale(1) translate(-1px, 0.5px);
+        }
         45% {
-            opacity: 0.85;
+            opacity: 0.82;
             transform: scale(1.002) translate(0, 0);
         }
         50% {
-            opacity: 0.82; /* Un pequeño bajón de luz orgánico */
+            opacity: 0.8; /* Un pequeño bajón de luz orgánico */
         }
         53% {
             opacity: 0.88;
+            transform: scale(1.008) translate(0.5px, 1px);
+        }
+        63% {
+            opacity: 0.83;
+            transform: scale(1.008) translate(0.5px, 1px);
+        }
+        73% {
+            opacity: 0.9;
             transform: scale(1.008) translate(0.5px, 1px);
         }
         80% {
             opacity: 0.86;
             transform: scale(1) translate(-0.5px, -0.5px);
         }
+        92% {
+            opacity: 0.82;
+            transform: scale(1.008) translate(0.5px, 1px);
+        }
     }
 </style>
+
+<script>
+    import { isTransitionBeforePreparationEvent } from "astro:transitions/client";
+
+    function mostrar() {
+        setTimeout(() => {
+            document.getElementById("app")?.classList.add("loaded");
+        }, 300);
+    }
+
+    // Para carga inicial normal
+    window.addEventListener("load", mostrar);
+
+    // Para cuando llegás via View Transition
+    document.addEventListener("astro:page-load", mostrar);
+</script>

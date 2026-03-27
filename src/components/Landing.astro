@@ -1,18 +1,29 @@
 ---
 import manosLogo from "../assets/Manos.svg";
 import { fade } from "astro:transitions";
-import background from "../assets/frontpage background.svg";
+import background from "../assets/frontpage background.webp";
 ---
 
 <div
     id="container"
     transition:animate={fade({ duration: "1s", direction: "forward" })}
 >
-    <img id="background" src={background.src} alt="" fetchpriority="high" />
+    <img
+        id="background"
+        src="/frontpage background.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+    />
     <main>
         <section id="Inicio">
             <a id="Manos" href="/main" fetchpriority="high">
-                <img src={manosLogo.src} alt="Mamarracho Homepage" />
+                <img
+                    src="/Manos.webp"
+                    alt="Mamarracho Homepage"
+                    loading="eager"
+                    fetchpriority="high"
+                />
             </a>
         </section>
     </main>
@@ -26,8 +37,8 @@ import background from "../assets/frontpage background.svg";
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100dvw;
+        height: 100dvh;
         z-index: -1;
     }
 
@@ -39,22 +50,20 @@ import background from "../assets/frontpage background.svg";
     }
 
     main {
-        height: 100vh;
+        height: 100dvh;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     #Inicio {
-        width: 50vw;
-        top: 25vh;
-        position: fixed;
+        width: clamp(280px, 40vw, 1280px);
+        margin-top: 10vh;
     }
 
     #Manos {
-        min-width: 150px;
-        max-width: 1080px;
-        display: inline-block;
+        display: block;
+        width: 100%;
     }
 
     #Manos img {

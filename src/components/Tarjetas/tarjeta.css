@@ -4,3 +4,7 @@
     --escala: 1;
     transform: scale(var(--escala));
 }
+
+.tarjeta {
+    will-change: transform, opacity;
+}

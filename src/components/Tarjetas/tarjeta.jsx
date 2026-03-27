@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import "./tarjeta.css";
-import tarjeta from "../../assets/Main/tarjeta.svg";
+import tarjeta from "../../assets/Main/tarjeta.webp";
 import Seccion from "../Secciones/seccion.jsx";
 import { motion } from "framer-motion";
 
@@ -13,6 +13,7 @@ export default function Tarjeta({ rotacion, idSeccion }) {
     <>
       <motion.div
         layoutId={`carta-${idSeccion}`}
+        layout
         class="tarjeta"
         onClick={() => setOpened(true)}
         initial={{
@@ -36,9 +37,11 @@ export default function Tarjeta({ rotacion, idSeccion }) {
         }}
       >
         <img
-          src={tarjeta.src}
+          src="/tarjeta.webp"
           alt=""
           style={{ "--rotacion": rotacion, pointerEvents: "none" }}
+          loading="eager"
+          fetchpriority="high"
         />
       </motion.div>
       {opened && (
