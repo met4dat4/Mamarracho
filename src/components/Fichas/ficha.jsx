@@ -1,29 +1,34 @@
 import { useState } from "preact/hooks";
-import "./tarjeta.css";
-import tarjeta from "../../assets/Main/tarjeta.webp";
 import Seccion from "../Secciones/seccion.jsx";
 import SeccionPortfolios from "../Secciones/seccion-portfolios.jsx";
+import SeccionTrayectoria from "../Secciones/seccion-trayectoria.jsx";
 import { motion } from "framer-motion";
+import "./ficha.css";
 
-export default function Tarjeta({ rotacion, idSeccion }) {
+export default function Ficha({ idSeccion }) {
   const [opened, setOpened] = useState(false);
 
-  const rotacionNumerica = parseInt(rotacion);
+  const URL_FICHAS = {
+    bruja: <SeccionPortfolios close={() => setOpened(false)} />,
+    brujo: <SeccionTrayectoria close={() => setOpened(false)} />,
+  };
+
+  const IMAGENES_FICHAS = {
+    bruja: "/Bruja.webp",
+    brujo: "/Brujo.webp",
+  };
 
   return (
     <>
       <motion.div
         layout
-        class="tarjeta"
-        onClick={() => {
-          setOpened(true);
-        }}
+        class="ficha"
+        id={idSeccion}
+        onClick={() => setOpened(true)}
         initial={{
-          rotate: rotacionNumerica,
           filter: "drop-shadow(0 0 0px rgba(232, 217, 102, 0))",
         }}
         animate={{
-          rotate: rotacionNumerica,
           filter: "drop-shadow(0 0 0px rgba(232, 217, 102, 0))",
         }}
         style={{
@@ -39,20 +44,14 @@ export default function Tarjeta({ rotacion, idSeccion }) {
         }}
       >
         <img
-          src="/tarjeta.webp"
+          src={IMAGENES_FICHAS[idSeccion]}
           alt=""
-          style={{ "--rotacion": rotacion, pointerEvents: "none" }}
+          style={{ pointerEvents: "none" }}
           loading="eager"
           fetchpriority="high"
         />
       </motion.div>
-      {opened && (
-        <Seccion
-          idSeccion={idSeccion}
-          rotacionInicial={rotacionNumerica}
-          close={() => setOpened(false)}
-        />
-      )}
+      {opened && (URL_FICHAS[idSeccion] || <p>Ups, no encontré la sección.</p>)}
     </>
   );
 }

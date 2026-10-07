@@ -3,6 +3,7 @@
     width: auto;
     --escala: 1;
     transform: scale(var(--escala));
+    animation: pulsoGlow 4s;
 }
 
 .tarjeta {

@@ -1,0 +1,26 @@
+.ficha img {
+    height: auto;
+    animation: pulsoGlow 4s;
+}
+
+.ficha {
+    position: absolute;
+    top: 70vh;
+}
+#bruja img {
+    width: 10vw;
+}
+
+/*
+#bruja {
+    position: absolute;
+    top: 75vh;
+}
+#brujo {
+    position: absolute;
+    top: 75vh;
+}*/
+#brujo img {
+    margin-left: 10vh;
+    width: 8vw;
+}

@@ -1,3 +1,5 @@
+import "./seccion.css";
+
 export default function Info() {
   return (
     <div class="info-contenido">
@@ -38,6 +40,19 @@ export default function Info() {
         Al igual que el número 9 representa el fruto del esfuerzo, Kodenove se
         enfoca en entregar resultados tangibles y transformadores.
       </p>
+      <a
+        href="https://www.instagram.com/kodenove/"
+        target="_blank"
+        rel="Instagram Page"
+      >
+        <div id="igLogo">
+          <img
+            src="/Logo Instagra.webp"
+            alt="Instagram"
+            style={{ width: "5%" }}
+          />
+        </div>
+      </a>
     </div>
   );
 }

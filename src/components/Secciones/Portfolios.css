@@ -1,0 +1,92 @@
+#contenido-portfolios {
+    height: 70vh;
+    width: 60vw;
+    grid-template-columns: 10% 80% 10%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-size: 100% 100%;
+}
+
+.overlay-portfolios {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+.info-portfolios {
+    max-height: 80vh;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.info-trayectoria {
+    max-height: 90vh;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.info-portfolios::-webkit-scrollbar {
+    width: 6px;
+}
+.info-portfolios::-webkit-scrollbar-track {
+    background: transparent;
+}
+.info-portfolios::-webkit-scrollbar-thumb {
+    background: rgba(255, 195, 77, 1);
+}
+
+.btn-nav {
+    background: none;
+    border: none;
+    color: rgba(255, 195, 77, 0.8);
+    font-size: 4rem;
+    cursor: pointer;
+    padding: 0 20px;
+    transition:
+        transform 0.2s,
+        color 0.2s;
+    z-index: 10;
+    user-select: none;
+    transform: scale(1.4);
+}
+
+.btn-nav:hover {
+    color: rgba(255, 195, 77, 1);
+    transform: scale(2);
+}
+
+.btn-nav:active {
+    transform: scale(1.5);
+}
+
+.slider-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (orientation: landscape) {
+    #contenido-portfolios {
+        width: 85vw;
+    }
+}

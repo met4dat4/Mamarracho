@@ -20,7 +20,6 @@ import Preloads from "./Preloads.astro";
 </html>
 
 <style is:global>
-    /* Regular */
     @font-face {
         font-family: "Papiro";
         src: url("/FUENTES/LinLibertine_R_G.woff2") format("woff2");
@@ -29,7 +28,6 @@ import Preloads from "./Preloads.astro";
         font-style: normal;
     }
 
-    /* Bold */
     @font-face {
         font-family: "Papiro";
         src: url("/FUENTES/LinLibertine_RB_G.woff2") format("woff2");
@@ -38,7 +36,6 @@ import Preloads from "./Preloads.astro";
         font-style: normal;
     }
 
-    /* Italic */
     @font-face {
         font-family: "Papiro";
         src: url("/FUENTES/LinLibertine_RI_G.woff2") format("woff2");
@@ -47,7 +44,6 @@ import Preloads from "./Preloads.astro";
         font-style: italic;
     }
 
-    /* Bold Italic */
     @font-face {
         font-family: "Papiro";
         src: url("/FUENTES/LinLibertine_RBI_G.woff2") format("woff2");
@@ -79,6 +75,18 @@ import Preloads from "./Preloads.astro";
             justify-content: center;
             align-items: center;
             z-index: 999999;
+        }
+    }
+
+    @keyframes pulsoGlow {
+        0% {
+            filter: drop-shadow(0 0 0px rgba(0, 123, 255, 0.7));
+        }
+        50% {
+            filter: drop-shadow(0 0 5px rgba(255, 195, 77, 1));
+        }
+        100% {
+            filter: drop-shadow(0 0 0px rgba(0, 123, 255, 0));
         }
     }
 </style>

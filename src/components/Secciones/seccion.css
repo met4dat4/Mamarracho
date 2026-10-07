@@ -13,7 +13,7 @@
 }
 
 #contenido {
-    height: 70vh;
+    height: 75vh;
     width: 60vw;
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@
 }
 
 .info-contenido {
-    max-height: 45vh;
+    max-height: 50vh;
     max-width: 45vw;
     overflow-y: auto;
     box-sizing: border-box;
@@ -44,10 +44,9 @@
     font-family: "Papiro", serif;
 }
 
-/*.spoti-contenido {
-    max-height: 70vh;
-    max-width: 70vw;
-}*/
+#igLogo {
+    text-align: center;
+}
 
 h3 {
     color: white;

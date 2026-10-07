@@ -1,6 +1,7 @@
 ---
 import { fade } from "astro:transitions";
 import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
+import Ficha from "../components/Fichas/ficha.jsx";
 import Tablero from "../components/Tablero/Tablero.astro";
 ---
 
@@ -14,24 +15,30 @@ import Tablero from "../components/Tablero/Tablero.astro";
     />
     <main>
         <div id="mesa">
-            <Tarjeta
-                idSeccion="info"
-                id="tarjeta-izq"
-                rotacion="90deg"
-                client:visible
-            />
+            <div id="izq">
+                <Tarjeta
+                    idSeccion="spoti"
+                    id="tarjeta-izq"
+                    rotacion="90deg"
+                    client:visible
+                />
+                <Ficha idSeccion="bruja" id="bruja" client:visible />
+            </div>
             <div id="tablero-wrapper">
                 <Tablero />
                 <div id="tarjeta-centro">
                     <Tarjeta idSeccion="MV" rotacion="0deg" client:visible />
                 </div>
             </div>
-            <Tarjeta
-                idSeccion="spoti"
-                id="tarjeta-der"
-                rotacion="-90deg"
-                client:visible
-            />
+            <div id="der">
+                <Tarjeta
+                    idSeccion="info"
+                    id="tarjeta-der"
+                    rotacion="-90deg"
+                    client:visible
+                />
+                <Ficha idSeccion="brujo" id="brujo" client:visible />
+            </div>
         </div>
     </main>
     <div class="candle-overlay" fetchpriority="high"></div>
@@ -71,14 +78,32 @@ import Tablero from "../components/Tablero/Tablero.astro";
         align-items: center;
     }
 
-    #tarjeta-izq {
+    #izq {
         grid-area: izq;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #der {
+        grid-area: der;
+    }
+
+    #tarjeta-izq {
         --rotacion: rotate(90deg);
     }
 
     #tarjeta-der {
-        grid-area: der;
         --rotacion: rotate(-90deg);
+    }
+
+    #brujo {
+        position: fixed;
+        top: 60vh;
+        right: 6vw;
     }
 
     #tablero-wrapper {
@@ -96,7 +121,6 @@ import Tablero from "../components/Tablero/Tablero.astro";
 
     .candle-overlay {
         position: fixed;
-        /* Mantenemos el margen de seguridad para evitar bordes blancos */
         top: -2%;
         left: -2%;
         width: 104%;
@@ -104,72 +128,67 @@ import Tablero from "../components/Tablero/Tablero.astro";
         pointer-events: none;
         z-index: 100;
 
-        /* Gradiente más amplio: la luz llega más lejos antes de oscurecerse */
         background: radial-gradient(
             circle at 50% 50%,
-            rgba(255, 140, 20, 0.23) 0%,
-            /* Centro cálido */ rgba(30, 15, 5, 0.35) 45%,
-            /* La luz se mantiene clara por más espacio */ rgba(10, 5, 0, 0.75)
-                55%,
-            /* Oscuridad sutil cerca del borde */ rgba(0, 0, 0, 0.95) 100%
-                /* Negro total solo en el extremo final */
+            rgba(255, 135, 15, 0.32) 0%,
+            /* Centro más cálido */ rgba(30, 15, 5, 0.42) 45%,
+            /* Penumbra intermedia */ rgba(10, 5, 0, 0.65) 60%,
+            rgba(0, 0, 0, 0.96) 100% /* Viñeta final */
         );
 
         mix-blend-mode: overlay;
-
-        /* Animación ruidosa pero con movimiento reducido */
         animation: candle-flicker-subtle 4s infinite;
     }
 
     @keyframes candle-flicker-subtle {
         0%,
         100% {
-            opacity: 0.88;
+            opacity: 0.85;
             transform: scale(1) translate(0, 0);
         }
-        /* Los saltos son de apenas 1 o 2 píxeles para que sea ruido y no desplazamiento */
         7% {
-            opacity: 0.94;
-            transform: scale(1.005) translate(1px, -1px);
+            opacity: 0.98;
+            transform: scale(1.006) translate(1px, -1px);
         }
         15% {
-            opacity: 0.9;
-            transform: scale(1) translate(-1px, 0.5px);
+            opacity: 0.88;
+            transform: scale(0.995) translate(-1px, 0.5px);
         }
         25% {
-            opacity: 0.82;
+            opacity: 0.74;
             transform: scale(1) translate(-1px, 0.5px);
         }
         35% {
-            opacity: 0.86;
-            transform: scale(1) translate(-1px, 0.5px);
+            opacity: 0.92;
+            transform: scale(1.002) translate(1px, 0.5px);
         }
         45% {
-            opacity: 0.82;
-            transform: scale(1.002) translate(0, 0);
-        }
-        50% {
-            opacity: 0.8; /* Un pequeño bajón de luz orgánico */
-        }
-        53% {
-            opacity: 0.88;
-            transform: scale(1.008) translate(0.5px, 1px);
-        }
-        63% {
-            opacity: 0.83;
-            transform: scale(1.008) translate(0.5px, 1px);
-        }
-        73% {
-            opacity: 0.9;
-            transform: scale(1.008) translate(0.5px, 1px);
-        }
-        80% {
-            opacity: 0.86;
+            opacity: 0.78;
             transform: scale(1) translate(-0.5px, -0.5px);
         }
-        92% {
-            opacity: 0.82;
+        50% {
+            opacity: 0.68;
+            transform: scale(0.992) translate(0, 0);
+        }
+        54% {
+            opacity: 0.95;
             transform: scale(1.008) translate(0.5px, 1px);
+        }
+        65% {
+            opacity: 0.82;
+            transform: scale(1) translate(-1px, -0.5px);
+        }
+        78% {
+            opacity: 1;
+            transform: scale(1.01) translate(1px, 1px);
+        }
+        88% {
+            opacity: 0.84;
+            transform: scale(0.997) translate(-0.5px, -0.5px);
+        }
+        94% {
+            opacity: 0.76;
+            transform: scale(1) translate(0.5px, 1px);
         }
     }
 </style>

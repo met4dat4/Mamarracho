@@ -15,7 +15,6 @@ export default function Seccion({ close, idSeccion, rotacionInicial }) {
   return createPortal(
     <div class="overlay" onClick={close}>
       <motion.div
-        layoutId={`carta-${idSeccion}`}
         id="contenido"
         onClick={(e) => e.stopPropagation()}
         initial={{ rotate: rotacionInicial }}
