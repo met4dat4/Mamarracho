@@ -1,8 +1,8 @@
 # Mamarracho | Kodenove
 
-An interactive web experience and portfolio developed for **Kodenove** for the release of their album *Mamarracho*. 
+Landing page and portfolio developed for **Kodenove** for the release of their album *Mamarracho*. 
 
-Stepping away from traditional web navigation, the band proposed an immersive interface based on the aesthetics of an esoteric board game, which was also designed in physical format for the album's release. Users interact with carved pieces and animated cards to explore the universe of the new album, their discography, and information about the band.
+Far from traditional web navigation, the band proposed an immersive interface based on the aesthetics of an esoteric board game, which was also designed in physical format for the album's release. Users interact with carved pieces and animated cards to explore the universe of the new album, the discography, and information about the band.
 
 ## Preview
 
@@ -12,10 +12,10 @@ Stepping away from traditional web navigation, the band proposed an immersive in
 
 ## Key Features
 
-* **Tactile & Immersive Interface:** Unconventional navigation that simulates a physical game board.
-* **Dynamic Atmosphere (Pure CSS):** Ambient lighting and candle flicker effects created entirely with native CSS (Keyframes, Gradients, and Blend Modes) to maintain optimal performance without heavy assets.
-* **Physics & Animations:** Interactive card system with spring effects and dynamic rotations handled via Framer Motion.
-* **SPA-like Navigation:** Fluid, reload-free page transitions using Astro's View Transitions API.
+* **Immersive Interface:** A PC / board game-inspired UI replacing traditional web navigation.
+* **Pure CSS Atmosphere:** Ambient lighting and candle flicker effects built entirely with native CSS (gradients, blend modes, and keyframes) to keep the project lightweight and avoid heavy assets.
+* **Physics-based Animations:** Card spring interactions and dynamic rotations powered by Framer Motion.
+* **Seamless Routing:** SPA-like, reload-free page transitions implemented natively through Astro's View Transitions API.
 
 ## Tech Stack
 
@@ -40,6 +40,3 @@ npm install
 
 # Start the development server
 npm run dev
-
-
-
