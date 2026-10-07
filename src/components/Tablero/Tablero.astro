@@ -1,0 +1,34 @@
+---
+import Casilleros from "./casilleros.jsx";
+---
+
+<div class="tablero">
+    <img
+        class="tablero-background"
+        src="/tablero.webp"
+        alt="Tablero"
+        loading="eager"
+        fetchpriority="high"
+    />
+    <Casilleros />
+</div>
+
+<style>
+    .tablero {
+        height: 90vh;
+        grid-area: tablero;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tablero-background {
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        display: block;
+        z-index: -2;
+    }
+</style>
