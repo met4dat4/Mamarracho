@@ -1,4 +1,4 @@
-# Kodenove: Mamarracho - Interactive Web Experience
+# Mamarracho | Kodenove
 
 An interactive web experience and portfolio developed for **Kodenove** for the release of their album *Mamarracho*. 
 
