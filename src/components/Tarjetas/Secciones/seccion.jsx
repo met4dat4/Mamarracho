@@ -17,8 +17,8 @@ export default function Seccion({ close, idSeccion, rotacionInicial }) {
       <motion.div
         id="contenido"
         onClick={(e) => e.stopPropagation()}
-        initial={{ rotate: rotacionInicial }}
-        animate={{ rotate: 0 }}
+        initial={{ opacity: 0, rotate: rotacionInicial }}
+        animate={{ opacity: 100, rotate: 0 }}
         transition={{
           type: "spring",
           stiffness: 100,
@@ -29,6 +29,6 @@ export default function Seccion({ close, idSeccion, rotacionInicial }) {
         {SECCIONES[idSeccion] ?? <p>Ups, no encontré la sección.</p>}
       </motion.div>
     </div>,
-    document.body, // 👈 se renderiza directo en el body, fuera de cualquier contenedor
+    document.body,
   );
 }

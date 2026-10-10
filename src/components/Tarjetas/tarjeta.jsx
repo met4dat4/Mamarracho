@@ -1,8 +1,7 @@
 import { useState } from "preact/hooks";
 import "./tarjeta.css";
 import tarjeta from "../../assets/Main/tarjeta.webp";
-import Seccion from "../Secciones/seccion.jsx";
-import SeccionPortfolios from "../Secciones/seccion-portfolios.jsx";
+import Seccion from "./Secciones/seccion.jsx";
 import { motion } from "framer-motion";
 
 export default function Tarjeta({ rotacion, idSeccion }) {

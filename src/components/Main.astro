@@ -1,7 +1,8 @@
 ---
 import { fade } from "astro:transitions";
 import Tarjeta from "../components/Tarjetas/tarjeta.jsx";
-import Ficha from "../components/Fichas/ficha.jsx";
+import FichaBrujo from "./Fichas/ficha-brujo";
+import FichaBruja from "./Fichas/ficha-bruja";
 import Tablero from "../components/Tablero/Tablero.astro";
 ---
 
@@ -22,7 +23,7 @@ import Tablero from "../components/Tablero/Tablero.astro";
                     rotacion="90deg"
                     client:visible
                 />
-                <Ficha idSeccion="bruja" id="bruja" client:visible />
+                <FichaBruja client:visible />
             </div>
             <div id="tablero-wrapper">
                 <Tablero />
@@ -37,7 +38,7 @@ import Tablero from "../components/Tablero/Tablero.astro";
                     rotacion="-90deg"
                     client:visible
                 />
-                <Ficha idSeccion="brujo" id="brujo" client:visible />
+                <FichaBrujo client:visible />
             </div>
         </div>
     </main>
