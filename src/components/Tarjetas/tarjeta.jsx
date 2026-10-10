@@ -3,7 +3,7 @@ import "./tarjeta.css";
 import Seccion from "./Secciones/seccion.jsx";
 import { motion } from "framer-motion";
 
-export default function Tarjeta({ rotacion, idSeccion }) {
+export default function Tarjeta({ rotacion, idSeccion, xInicial }) {
   const [opened, setOpened] = useState(false);
 
   const rotacionNumerica = parseInt(rotacion);
@@ -48,6 +48,7 @@ export default function Tarjeta({ rotacion, idSeccion }) {
         <Seccion
           idSeccion={idSeccion}
           rotacionInicial={rotacionNumerica}
+          xInicial={xInicial}
           close={() => setOpened(false)}
         />
       )}
