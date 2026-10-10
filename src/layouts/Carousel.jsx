@@ -29,6 +29,9 @@ export default function Carousel({ close, imagenes = [], scroll = false }) {
       onClick={handleClose}
     >
       <div id="content" onClick={(e) => e.stopPropagation()}>
+        <button className="btn-nav close" onClick={handleClose}>
+          <img src="/UX/cross.svg" alt="" className="close-img" />
+        </button>
         <button className="btn-nav prev" onClick={anterior}>
           ‹
         </button>
@@ -37,9 +40,6 @@ export default function Carousel({ close, imagenes = [], scroll = false }) {
             className="carousel-track"
             style={{ transform: `translateX(-${indice * 100}%)` }}
           >
-            <button className="btn-nav close" onClick={handleClose}>
-              <img src="/UX/cross.svg" alt="" className="close-img" />
-            </button>
             {imagenes.map((src) => (
               <div
                 className={`carousel-slide ${scroll ? "scrollable" : ""}`}
