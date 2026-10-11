@@ -11,7 +11,7 @@ export default function ContenidoBolaBottom() {
       animate(
         elementRef.current,
         { opacity: [0, 1] },
-        { delay: 1.1, duration: 2, easing: "ease-out" }
+        { delay: 1.1, duration: 1.1, easing: "ease-out" }
       );
     }
   }, []);
