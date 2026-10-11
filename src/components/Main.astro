@@ -6,7 +6,7 @@ import FichaBruja from "./Fichas/ficha-bruja";
 import Tablero from "../components/Tablero/Tablero.astro";
 ---
 
-<audio id="background-audio" src="/El hombre perfecto.mp3" autoPlay loop />
+<audio id="background-audio" src="/velas.mp3" autoPlay loop />
 <div class="container" id="app" transition:animate={fade({ duration: "1s" })}>
     <img
         id="background"
@@ -204,6 +204,11 @@ import Tablero from "../components/Tablero/Tablero.astro";
 
 <script>
     import { isTransitionBeforePreparationEvent } from "astro:transitions/client";
+
+    const audio = document.getElementById("background-audio");
+    if (audio) {
+        audio.volume = 0.1; // 20% de volumen, ideal para que sea un susurro de fondo
+    }
 
     function mostrar() {
         setTimeout(() => {
