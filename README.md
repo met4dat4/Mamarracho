@@ -23,20 +23,3 @@ Far from traditional web navigation, the band proposed an immersive interface ba
 * **UI & Components:** Preact + JSX 
 * **Animations:** Framer Motion (Physical interactions) + CSS Keyframes (Atmosphere)
 * **Styling:** Advanced native CSS (CSS Variables, Grid, View Transitions)
-
-## Local Installation & Development
-
-To clone and run this project in your local environment:
-
-```bash
-# Clone the repository
-git clone [https://github.com/met4dat4/Mamarracho.git](https://github.com/met4dat4/Mamarracho.git)
-
-# Navigate to the project directory
-cd Mamarracho
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
